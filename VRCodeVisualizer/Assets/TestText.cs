@@ -6,14 +6,14 @@ public class TestText : MonoBehaviour {
     public Transform canvas_t;
     public Color textColor;
     public Font aFont;
+    public string someStr = "test";
     private GameObject textFunction; // 
-    private int numOfTexts = 5; // this will be # of rows in csv file
+    private int numOfTexts = 5; // this will be # of functions
 	// Use this for initialization
 	void Start () {
-
         for (int i = 0; i < numOfTexts; i++)
         {
-            textFunction = CreateText(canvas_t, 10, 10, "hello", 20, aFont, textColor);
+            textFunction = CreateText(canvas_t, 0, 18, 0, "test", 20, aFont, textColor);
             //Instantiate(textFunction);
         }
     }
@@ -23,13 +23,14 @@ public class TestText : MonoBehaviour {
 	    
 	}
 
-    GameObject CreateText(Transform canvas_transform, float x, float y, string text_to_print, int font_size, Font someFont, Color text_color)
+    GameObject CreateText(Transform canvas_transform, float x, float y, float z, string text_to_print, int font_size, Font someFont, Color text_color)
     {
         GameObject UItextGO = new GameObject("Text2");
-        UItextGO.transform.SetParent(canvas_transform);
+        UItextGO.transform.SetParent(this.transform);
 
         RectTransform trans = UItextGO.AddComponent<RectTransform>();
-        trans.anchoredPosition = new Vector2(x, y);
+        trans.anchoredPosition3D = new Vector3(x, y, z);
+        trans.localScale = new Vector3(1, 1, 1);
 
         Text text = UItextGO.AddComponent<Text>();
         text.text = text_to_print;
