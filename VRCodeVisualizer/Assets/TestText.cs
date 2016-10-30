@@ -18,7 +18,11 @@ public class TestText : MonoBehaviour {
     void Start () {
         for (int i = 0; i < numOfTexts; i++)
         {
-            textFunction = CreateText(canvas_t, xCoords[i], yCoords[i], zCoords[i], xRot[i], yRot[i], zRot[i], someStr, 20, aFont, textColor);
+            GameObject t = GameObject.FindGameObjectWithTag("" + (i+1));
+            Text text = t.GetComponent<Text>();
+            text.text = someStr;
+
+            //textFunction = CreateText(canvas_t, xCoords[i], yCoords[i], zCoords[i], xRot[i], yRot[i], zRot[i], someStr, 20, aFont, textColor);
         }
     }
 	
