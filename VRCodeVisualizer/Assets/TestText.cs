@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+//a comment
 public class TestText : MonoBehaviour {
     public Transform canvas_t;
     public Color textColor;
